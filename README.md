@@ -1,10 +1,10 @@
 # Building Software Systems Course Final Project
 
-  FACoin is a basic cryptocurrency exchange app. We make request to an coin API for
+FACoin is a basic cryptocurrency exchange app. We make request to an coin API for
 updated coin values. System has specified trading pairs but any pair can be added
 to system easily just adding to coins.json and banknotes.json files and enumarations
 of that currencies. 
-  We also make a request to that API for candles of selected trading pair when user wants
+We also make a request to that API for candles of selected trading pair when user wants
 to see its candles. System has hour candles and day candles. History of candles can be changed
 in AppSettings. 
 
@@ -15,7 +15,7 @@ We have used concepts of:
 * [Decorator Design pattern](https://en.wikipedia.org/wiki/Decorator_pattern)
 * [GoF patterns](https://en.wikipedia.org/wiki/Design_Patterns)
 
-  The main patterns used in this project are MVC, Abstract Factory, Mediator and Decorator patterns
+The main patterns used in this project are MVC, Abstract Factory, Mediator and Decorator patterns
 but we used concepts of GoF patterns like State, Adapter, Façade, Factory Method and others. 
 
 You can reach us: 
