@@ -19,8 +19,9 @@ The main patterns used in this project are MVC, Abstract Factory, Mediator and D
 but we used concepts of GoF patterns like State, Adapter, Façade, Factory Method and others. 
 
 You can reach us: 
-- [Furkan Sahin](https://github.com/furkansahinfs)
-- [Arif Burak Demiray](https://github.com/arifBurakDemiray)
+- [![](https://img.shields.io/badge/-Furkan%20Sahin-informational?style=flat&logo=linkedin&logoColor=white&color=0077b5)](https://www.linkedin.com/in/furkansahinfs) 
+[![](https://img.shields.io/badge/-Furkan%20Sahin-informational?style=flat&logo=wordpress&logoColor=white&color=545456)](https://sahinfurkan.wordpress.com) 
+- [![](https://img.shields.io/badge/-Arif%20Burak%20Demiray-informational?style=flat&logo=linkedin&logoColor=white&color=0077b5)](http://www.linkedin.com/in/arifBurakDemiray) 
 
 For more information and what we have learned you can go and view our repositories about this course
 - [Furkan's Repository for this course](https://github.com/furkansahinfs/Building_Software_System_Java_Homeworks)
