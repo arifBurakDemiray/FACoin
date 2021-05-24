@@ -101,7 +101,6 @@ public class UserRepository implements IRepository<User>, IRestrictedRepository<
 
 	@Override
 	public DatabaseResult getByName(String name) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

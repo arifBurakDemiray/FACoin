@@ -15,6 +15,10 @@ public class Updater {
 		setUpRun();
 	}
 
+	/**
+	 * In every 10 seconds, get the new coin values from update mediator and update
+	 * the pool's updateable objects
+	 */
 	public void RUN() {
 		try {
 			Thread.EXECUTOR = Executors.newScheduledThreadPool(1);
@@ -30,7 +34,8 @@ public class Updater {
 			@Override
 			public void run() {
 				mediator.updateValues();
-				UpdatePool.UPDATE();	
-			}};
+				UpdatePool.UPDATE();
+			}
+		};
 	}
 }

@@ -40,6 +40,7 @@ public class ConfigurationManager {
 
 	/**
 	 * This function initialises databases of the system {@link Startup}
+	 * @throws FileReadException 
 	 */
 	protected void configureDatabases() throws FileReadException {
 		BaseRepository br = new BaseRepository();

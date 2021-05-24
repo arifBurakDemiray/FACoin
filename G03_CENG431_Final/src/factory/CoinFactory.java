@@ -1,5 +1,6 @@
 package factory;
 
+import factory.objects.CurrencyFactoryParams;
 import factory.validator.CoinValidator;
 import factory.validator.ValidationResult;
 import fileio.repository.CoinRepository;

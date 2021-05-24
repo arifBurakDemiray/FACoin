@@ -1,158 +1,26 @@
 {
-    "85171": {
-        "coinValue": "1.0",
-        "coinQ": "1.0",
-        "type": "Approved",
-        "pair": "1-2"
-    },
-    "6577": {
-        "coinValue": "1.0",
-        "coinQ": "1.0",
-        "type": "Approved",
-        "pair": "1-2"
-    },
-    "63547": {
-        "coinValue": "35.0",
-        "coinQ": "-100.0",
-        "type": "Approved",
-        "pair": "1-1"
-    },
-    "15160": {
-        "coinValue": "1.0",
-        "coinQ": "1.0",
-        "type": "Approved",
-        "pair": "1-2"
-    },
-    "25845": {
-        "coinValue": "1.0",
-        "coinQ": "1.0",
-        "type": "Approved",
-        "pair": "6-1"
-    },
-    "82717": {
-        "coinValue": "11.0",
-        "coinQ": "-102.0",
-        "type": "Approved",
-        "pair": "6-2"
-    },
-    "31992": {
-        "coinValue": "1.0",
-        "coinQ": "1.0",
-        "type": "Approved",
-        "pair": "1-2"
-    },
-    "29341": {
-        "coinValue": "1.0",
-        "coinQ": "1.0",
-        "type": "Approved",
-        "pair": "1-2"
-    },
-    "32145": {
-        "coinValue": "1.0",
-        "coinQ": "1.0",
-        "type": "Approved",
-        "pair": "1-2"
-    },
-    "86102": {
-        "coinValue": "11.21",
-        "coinQ": "-1.0",
-        "type": "Approved",
-        "pair": "6-2"
-    },
-    "69598": {
-        "coinValue": "1.34",
-        "coinQ": "1.0",
-        "type": "Approved",
-        "pair": "6-1"
-    },
-    "94730": {
-        "coinValue": "1.3",
-        "coinQ": "-1.0",
-        "type": "Approved",
-        "pair": "6-1"
-    },
-    "39187": {
-        "coinValue": "300000.0",
-        "coinQ": "-100.0",
-        "type": "Approved",
-        "pair": "1-1"
-    },
-    "16881": {
-        "coinValue": "1.0",
-        "coinQ": "1.0",
-        "type": "Approved",
-        "pair": "1-2"
-    },
     "0": {
-        "coinValue": "11.0",
-        "coinQ": "1.0",
+        "coinValue": "1950.0",
+        "coinQ": "0.04",
         "type": "Approved",
-        "pair": "6-1"
+        "pair": "9-1"
     },
-    "1": {
-        "coinValue": "1.0",
-        "coinQ": "100.0",
-        "type": "Pending",
-        "pair": "1-1"
-    },
-    "2": {
-        "coinValue": "1.0",
-        "coinQ": "100.0",
+    "79453": {
+        "coinValue": "1000.0",
+        "coinQ": "-0.02",
         "type": "Approved",
-        "pair": "1-1"
+        "pair": "9-1"
     },
-    "23270": {
-        "coinValue": "177.0",
-        "coinQ": "30.0",
+    "59424": {
+        "coinValue": "7.0",
+        "coinQ": "20.0",
         "type": "Approved",
-        "pair": "4-2"
+        "pair": "15-2"
     },
-    "3": {
-        "coinValue": "1.0",
-        "coinQ": "100.0",
+    "64516": {
+        "coinValue": "6.9",
+        "coinQ": "-20.0",
         "type": "Approved",
-        "pair": "1-1"
-    },
-    "4": {
-        "coinValue": "1.0",
-        "coinQ": "100.0",
-        "type": "Approved",
-        "pair": "1-1"
-    },
-    "5": {
-        "coinValue": "1.0",
-        "coinQ": "100.0",
-        "type": "Approved",
-        "pair": "1-1"
-    },
-    "6": {
-        "coinValue": "1.0",
-        "coinQ": "100.0",
-        "type": "Approved",
-        "pair": "1-1"
-    },
-    "7": {
-        "coinValue": "1.0",
-        "coinQ": "100.0",
-        "type": "Pending",
-        "pair": "1-1"
-    },
-    "86731": {
-        "coinValue": "1.0",
-        "coinQ": "1.0",
-        "type": "Approved",
-        "pair": "1-2"
-    },
-    "57639": {
-        "coinValue": "1.309",
-        "coinQ": "1.0",
-        "type": "Approved",
-        "pair": "6-1"
-    },
-    "87264": {
-        "coinValue": "1.4",
-        "coinQ": "100.0",
-        "type": "Approved",
-        "pair": "6-1"
+        "pair": "15-2"
     }
 }

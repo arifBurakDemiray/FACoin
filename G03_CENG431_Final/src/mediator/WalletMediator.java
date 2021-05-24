@@ -17,16 +17,16 @@ import view.decorator.JListDecorator;
 
 public class WalletMediator extends Consumable {
 
-	private User user;
+	private User user; // logged in user
 	private WalletView view;
 	private IConsumable controller;
 	private JListDecorator decorator;
 	private boolean isBankView = false;
 	private boolean isCryptoView = true;
-	private DepositPayService service;
-	
+	private DepositPayService service; // service to add money to bank wallet
+
 	private boolean isDeposit = false;
-	
+
 	public WalletMediator(User user) {
 		this.user = user;
 		view = new WalletView(user.getCryptoWallet().getId(), user.getBankWallet().getId());
@@ -42,6 +42,10 @@ public class WalletMediator extends Consumable {
 		return view;
 	}
 
+	/**
+	 * The function do the back process. Pool is updated. WalletView is closed and
+	 * home view is open.
+	 */
 	public void back() {
 		controller.supressNotUsed();
 		view.setVisible(false);
@@ -50,6 +54,12 @@ public class WalletMediator extends Consumable {
 		mediator.supressNotUsed();
 	}
 
+	/**
+	 * If a coin is selected in the list of crypto wallet coins open the coin info
+	 * view of that coin.
+	 * 
+	 * @throws HttpRequestException
+	 */
 	public void getSelectedCoinView() throws HttpRequestException {
 
 		JLabel label = view.getListSelected();
@@ -69,6 +79,9 @@ public class WalletMediator extends Consumable {
 
 	}
 
+	/**
+	 * If user clicks on Crypto button, set the coins' list of user crypto wallet
+	 */
 	public void cryptoView() {
 		if (!isCryptoView) {
 			UpdatePool.POOL.remove(decorator);
@@ -80,41 +93,50 @@ public class WalletMediator extends Consumable {
 
 	}
 
+	/**
+	 * If user clicks on Bank button, set the banknotes' list of user bank wallet
+	 */
 	public void bankView() {
-		if(!isBankView){
+		if (!isBankView) {
 			UpdatePool.POOL.remove(decorator);
 			decorator = new BankWalletListDecorator(this.view);
 			UpdatePool.POOL.add(decorator);
 			isBankView = true;
-			isCryptoView = false; 
+			isCryptoView = false;
 		}
 	}
 
+	/**
+	 * If user clicks on Pay button, get the selected banknote input and quantity
+	 * input, add the banknote quantity of given input
+	 */
 	public void depositBanknote() {
 		String[] values = view.getValues();
-		if(values[0] != null && values[1] !=null) {
-			boolean result = service.processDepositRequest(user.getBankWallet(),values[0],values[1]);
-			if(!result)
+		if (values[0] != null && values[1] != null) {
+			// Add the given quantity of selected banknote to user bank wallet
+			boolean result = service.processDepositRequest(user.getBankWallet(), values[0], values[1]);
+			if (!result)
 				view.showAlert("Please use \".\" in prices and quantities when using fractions");
 		}
 		view.hidePay();
 	}
 
+	/**
+	 * If user clicks on Deposit button, show input boxes
+	 */
 	public void showPay() {
-		if(!isDeposit) {
+		if (!isDeposit) {
 			view.showPay();
-			isDeposit = true;}
-		else {
+			isDeposit = true;
+		} else {
 			view.hidePay();
-			isDeposit = false;}
+			isDeposit = false;
+		}
 	}
 
 	public void showAlert(String message) {
 		view.showAlert(message);
-		
+
 	}
 
-	
 }
-
-

@@ -14,11 +14,12 @@ import storage.IContainer;
 import view.CoinInfoView;
 
 public class CandleChartService {
-	
-	private DayCandleRepository dayCandleRepository;
-	private HourCandleRepository hourCandleRepository;
-	private String coinName;
-	private String banknoteName;
+
+	private DayCandleRepository dayCandleRepository; // holds requested day candles of coin
+	private HourCandleRepository hourCandleRepository; // holds requested hour candles of coin
+	private String coinName; // selected coin's name like BTC
+	private String banknoteName; // selected coin's trade pair like USD
+
 	public CandleChartService(String coinName, String banknoteName) {
 		dayCandleRepository = new DayCandleRepository();
 		hourCandleRepository = new HourCandleRepository();
@@ -26,32 +27,49 @@ public class CandleChartService {
 		this.coinName = coinName;
 	}
 
-	
+	/**
+	 * Set the view chart according to candle type of day/hour
+	 * 
+	 * @param type = candle type (day or hour)
+	 * @param view
+	 */
 	public void setViewChart(ECandleType type, CoinInfoView view) {
-		DefaultHighLowDataset dataset = createOHLCDataset(type);
-		final JFreeChart chart = createChart(dataset);
-		view.setChart(chart);
+		DefaultHighLowDataset dataset = createOHLCDataset(type); // set candles' dataset
+		final JFreeChart chart = createChart(dataset); // create graph
+		view.setChart(chart); // set graph to the view
 	}
-	
+
+	/**
+	 * Create the graph according to given candles' dataset
+	 * 
+	 * @param dataset = candles' dataset
+	 * @return JFreeChart
+	 */
 	private JFreeChart createChart(final DefaultHighLowDataset dataset) {
 		final JFreeChart chart = ChartFactory.createCandlestickChart("", "", "", dataset, true);
 		return chart;
 	}
 
+	/**
+	 * According to candle type, get the candles' information and return
+	 * DefaultHighLowDataset object
+	 * 
+	 * @param type
+	 * @return
+	 */
 	private DefaultHighLowDataset createOHLCDataset(ECandleType type) {
-		
+
 		IContainer<Candle> candles;
-		if(type == ECandleType.DAY)
-		{
+
+		// Request selected coin:banknote pair's candles from Candle API
+		if (type == ECandleType.DAY) {
 			candles = dayCandleRepository.day_candles(coinName, banknoteName);
-		}
-		else
-		{
+		} else {
 
 			candles = hourCandleRepository.hour_candles(coinName, banknoteName);
 		}
-	
-		
+
+		// Set the DefaultHighLowDataset object's variables
 		int len = candles.getLength();
 		Date[] dates = new Date[len];
 		double[] opens = new double[len];
@@ -71,7 +89,6 @@ public class CandleChartService {
 			i++;
 		}
 
-		return new DefaultHighLowDataset(coinName +"/"+ banknoteName,
-				dates, highs, lows, opens, closes, volumes);
+		return new DefaultHighLowDataset(coinName + "/" + banknoteName, dates, highs, lows, opens, closes, volumes);
 	}
 }

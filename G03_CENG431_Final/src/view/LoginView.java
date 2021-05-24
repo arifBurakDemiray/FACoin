@@ -37,12 +37,12 @@ public class LoginView extends AppView {
 		loginButton.setFont(new Font("Arial", Font.BOLD, 20));
 		add(loginButton);
 
-		password = new JPasswordField("123456");
+		password = new JPasswordField("Password");
 		password.setBounds(300, 260, 200, 40);
 		password.setFont(new Font("Arial", Font.PLAIN, 20));
 		add(password);
 
-		userName = new JTextField("furkan");
+		userName = new JTextField("Username");
 		userName.setBounds(300, 200, 200, 40);
 		userName.setFont(new Font("Arial", Font.PLAIN, 20));
 		add(userName);

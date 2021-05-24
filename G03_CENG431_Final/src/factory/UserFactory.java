@@ -9,6 +9,8 @@ import fileio.repository.CryptoWalletRepository;
 import fileio.repository.DatabaseResult;
 import fileio.repository.IRestrictedRepository;
 import fileio.repository.TransactionRepository;
+import model.BankWallet;
+import model.CryptoWallet;
 import model.Transaction;
 import model.User;
 import model.Wallet;
@@ -61,30 +63,39 @@ public class UserFactory {
 		if (!isUserOK.isValid) {
 			return userResult;
 		}
-
+		CryptoWalletRepository cryptoRepository = new CryptoWalletRepository();
 		// Try to get the crypto wallet object of user from crypto wallet repository
-		DatabaseResult resultCryptoWallet = (new CryptoWalletRepository()).getById(cryptoWalletId);
+		DatabaseResult resultCryptoWallet = cryptoRepository.getById(cryptoWalletId);
 
+		BankWalletRepository bankRepo =  new BankWalletRepository();
 		// Try to get the bank wallet object of user from bank wallet repository
-		DatabaseResult resultBankWallet = (new BankWalletRepository()).getById(bankWalletId);
+		DatabaseResult resultBankWallet = bankRepo.getById(bankWalletId);
 		Object cryptoWallet = resultCryptoWallet.getObject();
 		Object bankWallet = resultBankWallet.getObject();
 
+		if (cryptoWallet == null) {
+			Dictionary<String, String> coins = new Hashtable<String, String>();
+			cryptoWallet = (new CryptoWalletFactory()).createWallet("0", coins);
+			cryptoRepository.addEntity((CryptoWallet) cryptoWallet);
+		}
+		if (bankWallet == null) {
+			Dictionary<String, String> banknotes = new Hashtable<String, String>();
+			bankWallet = (new BankWalletFactory()).createWallet("0", banknotes);
+			bankRepo.addEntity((BankWallet) bankWallet);
+		}
+
 		// If wallets exist, create user's favorites dictionary, create user's
 		// transactions container and create user
-		if (cryptoWallet != null && bankWallet != null) {
+		// Create user's favorite coins' dictionary ( for example = BTC/USD, BTC/TRY,
+		// AVAX/TRY )
+		Dictionary<String, List<String>> favoritesDictionary = createDictionary(favorites);
 
-			// Create user's favorite coins' dictionary ( for example = BTC/USD, BTC/TRY,
-			// AVAX/TRY )
-			Dictionary<String, List<String>> favoritesDictionary = createDictionary(favorites);
+		// Create user's transactions container
+		IContainer<Transaction> transactions = createTransactions(transactionIds);
 
-			// Create user's transactions container
-			IContainer<Transaction> transactions = createTransactions(transactionIds);
-
-			// Create user
-			userResult = new User(id, userName, password, (Wallet) cryptoWallet, (Wallet) bankWallet,
-					favoritesDictionary, transactions);
-		}
+		// Create user
+		userResult = new User(id, userName, password, (Wallet) cryptoWallet, (Wallet) bankWallet, favoritesDictionary,
+				transactions);
 
 		return userResult;
 

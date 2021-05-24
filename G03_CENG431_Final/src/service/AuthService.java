@@ -31,6 +31,9 @@ public class AuthService {
 			if (!psw.equals(String.valueOf(password))) { // if password not matches
 				found = null;
 			}
+			else{//this block is for writing all initialized entities for the user to see when he logins
+				userRepository.saveChanges(); 
+			}
 		}
 		return found;
 	}

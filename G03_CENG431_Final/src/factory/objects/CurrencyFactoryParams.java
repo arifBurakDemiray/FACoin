@@ -1,4 +1,4 @@
-package factory;
+package factory.objects;
 public class CurrencyFactoryParams {
 	public String id; // currency id
 	public String name; // currency name

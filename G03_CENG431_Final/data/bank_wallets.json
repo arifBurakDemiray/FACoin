@@ -1,19 +1,13 @@
 {
-    "5670": {"banknotes": []},
-    "4592": {"banknotes": []},
-    "1235": {"banknotes": [{
-        "quantity": "213.0",
-        "id": "1"
-    }]},
-    "8247": {"banknotes": []},
-    "2196": {"banknotes": [
+    "0": {"banknotes": [
         {
-            "quantity": "5126.21",
+            "quantity": "998.0",
             "id": "2"
         },
         {
-            "quantity": "449857.65099999995",
+            "quantity": "442.0",
             "id": "1"
         }
-    ]}
+    ]},
+    "39053": {"banknotes": []}
 }

@@ -11,17 +11,24 @@ public class JLabelService {
 	public JLabelService() {
 		currencies = new CoinRepository();
 	}
-	
-	public JLabel getCoinLabel(String coinName, String banknoteName)
-	{
+
+	/**
+	 * Return the JLabel Set the label text accoring to given coin name and banknote
+	 * name
+	 * 
+	 * @param coinName
+	 * @param banknoteName
+	 * @return
+	 */
+	public JLabel getCoinLabel(String coinName, String banknoteName) {
 		JLabel label = new JLabel();
+		// Get coin object from the coin repository
 		DatabaseResult coinResult = currencies.getByName(coinName);
-		if(coinResult.getObject() != null)
-		{
-			ICurrency coin = (ICurrency) coinResult.getObject();			
-			label.setText(coinName + "/" + banknoteName + " " + coin.getValue().get(banknoteName));			
+		if (coinResult.getObject() != null) {
+			ICurrency coin = (ICurrency) coinResult.getObject();
+			// Set text
+			label.setText(coinName + "/" + banknoteName + " " + coin.getValue().get(banknoteName));
 		}
-		return label;	
+		return label;
 	}
 }
-	

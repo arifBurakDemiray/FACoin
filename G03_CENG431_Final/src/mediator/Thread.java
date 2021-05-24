@@ -4,6 +4,11 @@ package mediator;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Thread is for the update necessary values every 10 second.
+ * To make update process we need mutex
+ *
+ */
 public class Thread {
 	protected static ScheduledExecutorService EXECUTOR = null;
 	public static int MUTEX = 0;

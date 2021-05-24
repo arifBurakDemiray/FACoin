@@ -6,7 +6,7 @@ import org.json.JSONObject;
 import exception.FileReadException;
 import factory.AbstractFactory;
 import factory.BanknoteFactory;
-import factory.CurrencyFactoryParams;
+import factory.objects.CurrencyFactoryParams;
 import fileio.repository.BanknoteRepository;
 import fileio.repository.IRepository;
 import model.Banknote;
